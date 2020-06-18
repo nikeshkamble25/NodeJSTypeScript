@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc && node out/server.js"
+    "dev": "set UV_THREADPOOL_SIZE=4 && tsc && node out/server.js"
   },
   "author": "",
   "license": "ISC",

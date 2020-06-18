@@ -14,5 +14,4 @@ const appContainer = new Container();
 appContainer.bind<IDBContext<Mongoose>>(TYPES.IDBContext).to(MongoDBContext).inSingletonScope();
 appContainer.bind<IRepository<IUser>>(TYPES.IRepository).to(AuthRepository);
 appContainer.bind<IService>(TYPES.IService).to(PassportService);
-
 export { appContainer };

@@ -1,13 +1,4 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -46,25 +37,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthHandler = void 0;
-var inversify_1 = require("inversify");
 var types_1 = require("../types/types");
 var container_1 = require("../container/container");
 var AuthHandler = /** @class */ (function () {
     function AuthHandler() {
         var _this = this;
-        this.handleIndex = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var users;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this._repo.getAll()];
-                    case 1:
-                        users = _a.sent();
-                        res.send(users);
-                        return [2 /*return*/];
-                }
+        this.handleIndex = function (req, res) {
+            _this._repo.getAll().then(function (users) {
+                res.send('[{"userId":"110409088112434335123","userName":"nikesh kamble"},{"userId":"110409088112434335123","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"},{"userId":"110409088112434330000","userName":"nikesh kamble"}]');
             });
-        }); };
-        this.handleLogin = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        };
+        this.handleLogin = function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/];
             });
@@ -90,10 +73,6 @@ var AuthHandler = /** @class */ (function () {
         }); };
         this._repo = container_1.appContainer.get(types_1.TYPES.IRepository);
     }
-    AuthHandler = __decorate([
-        inversify_1.injectable(),
-        __metadata("design:paramtypes", [])
-    ], AuthHandler);
     return AuthHandler;
 }());
 exports.AuthHandler = AuthHandler;
